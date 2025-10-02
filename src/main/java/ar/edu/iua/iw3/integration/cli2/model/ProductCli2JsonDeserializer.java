@@ -37,12 +37,12 @@ public class ProductCli2JsonDeserializer extends StdDeserializer<ProductCli2> {
 		//Agregamos expiration date--------
 		String expirationStr = JsonUtiles.getString(node, "expiration_date,expiry,expDate,fecha_expiracion".split(","),null);
 		
-		Date fecha = null;
+		Date expirationDate = null;
         if (expirationStr != null) {
             try {
-                fecha = new SimpleDateFormat("yyyy-MM-dd").parse(expirationStr);
+                expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse(expirationStr);
             } catch (ParseException e) {
-                throw new IOException("Formato de fecha inválido para fecha, se esperaba yyyy-MM-dd");
+                throw new IOException("Formato de fecha inválido para expirationDate, se esperaba yyyy-MM-dd");
             }
         } else {
             throw new IOException("La fecha de expiración es obligatoria");
@@ -58,7 +58,7 @@ public class ProductCli2JsonDeserializer extends StdDeserializer<ProductCli2> {
 		
 		double price = JsonUtiles.getDouble(node, "product_price,price_product,price".split(","), 0);
 		boolean stock = JsonUtiles.getBoolean(node, "stock,in_stock".split(","), false);
-		r.setFecha(fecha);
+		r.setExpirationDate(expirationDate);
 		r.setProduct(productDesc);
 		r.setPrecio(price);
 		r.setStock(stock);

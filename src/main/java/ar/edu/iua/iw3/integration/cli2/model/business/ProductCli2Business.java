@@ -29,7 +29,7 @@ public class ProductCli2Business implements IProductCli2Business {
 	@Override
 	public List<ProductCli2> listExpired(Date date) throws BusinessException {
 		try {
-			return productDAO.findByFechaBeforeOrderByFechaDesc(date);
+			return productDAO.findByExpirationDateBeforeOrderByExpirationDateDesc(date);
 		} catch (Exception e) {
 			log.error(e.getMessage(), e);
 			throw BusinessException.builder().ex(e).build();
@@ -66,7 +66,7 @@ public class ProductCli2Business implements IProductCli2Business {
                 throw new BusinessException("El nombre del producto es obligatorio");
             }
 
-            if (product.getFecha() == null) {
+            if (product.getExpirationDate() == null) {
                 throw new BusinessException("La fecha de expiración es obligatoria");
             }
 
