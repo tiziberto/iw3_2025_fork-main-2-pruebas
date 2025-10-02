@@ -12,7 +12,7 @@ import ar.edu.iua.iw3.integration.cli2.model.ProductCli2SlimView;
 
 @Repository
 public interface ProductCli2Respository extends JpaRepository<ProductCli2, Long> {
-	public List<ProductCli2> findByfechaBeforeOrderByfechaDesc(Date fecha);
+	public List<ProductCli2> findByFechaBeforeOrderByFechaDesc(Date fecha);
 	
 	public List<ProductCli2SlimView> findByOrderByPrecioDesc();
 	
