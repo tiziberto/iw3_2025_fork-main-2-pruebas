@@ -41,9 +41,9 @@ public class ProductCli2SlimV1JsonSerializer extends StdSerializer<ProductCli2> 
 			gen.writeNullField("category");
 		}
 
-		gen.writeObjectField("expirationDate", value.getExpirationDate());
+		gen.writeObjectField("Fecha", value.getFecha());
 
-		gen.writeNumberField("daysExpired", DAYS.between(Instant.ofEpochMilli(value.getExpirationDate().getTime())
+		gen.writeNumberField("daysExpired", DAYS.between(Instant.ofEpochMilli(value.getFecha().getTime())
 				.atZone(ZoneId.systemDefault()).toLocalDateTime(), LocalDateTime.now()));
 
 		String componentsStr = JsonUtiles
