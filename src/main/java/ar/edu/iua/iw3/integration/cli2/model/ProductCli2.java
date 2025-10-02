@@ -29,7 +29,7 @@ public class ProductCli2 extends Product{
 	private static final long serialVersionUID = 2516446617276638458L;
 
 	@Column(columnDefinition = "DATETIME NOT NULL")
-	private Date expirationDate;
+	private Date Fecha;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "cli2_product_component", 
