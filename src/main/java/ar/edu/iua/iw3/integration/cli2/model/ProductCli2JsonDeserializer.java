@@ -34,9 +34,9 @@ public class ProductCli2JsonDeserializer extends StdDeserializer<ProductCli2> {
 	public ProductCli2 deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException, JacksonException {
 		ProductCli2 r = new ProductCli2();
 		JsonNode node = jp.getCodec().readTree(jp);
-		//Agregamos expiration date--------
-		String expirationStr = JsonUtiles.getString(node, "expiration_date,expiry,expDate,fecha_expiracion".split(","),null);
-		
+ 		
+		//Añadimos la fecha de vencimiento:
+ 		String expirationStr = JsonUtiles.getString(node, "expiration_date,expiry,expDate,fecha_expiracion".split(","),null);
 		Date expirationDate = null;
         if (expirationStr != null) {
             try {

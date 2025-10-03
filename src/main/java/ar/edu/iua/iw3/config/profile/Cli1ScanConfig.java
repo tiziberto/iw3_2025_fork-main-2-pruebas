@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @EnableJpaRepositories(basePackages = "ar.edu.iua.iw3.integration.cli1.model.persistence",
 excludeFilters = {
+	//TRABAJO PRACTICO 3: comentamos la excepcion porque ahora vamos a usar los 2 perfiles en simultaneo 
 		//@ComponentScan.Filter(type = FilterType.REGEX, pattern = "ar\\.edu\\.iua\\.iw3\\.integration\\.cli2\\..*" )
 		//Se pueden definir más filtros de exclusión
 		//,@ComponentScan.Filter(type = FilterType.REGEX, pattern = "org\\.magm\\.backend\\.integration\\.cliN\\..*" )
